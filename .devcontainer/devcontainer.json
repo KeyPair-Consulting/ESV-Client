@@ -11,12 +11,15 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code. 
-        // NOTE: this extension was present in the original devcontainer.json.
-        // It is a nicety but NIST may prefer minimal unofficial 3rd party extensions.
 		"vscode": {
-			"settings": {},
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+    			"python.linting.pylintEnabled": true
+			},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker"
+				"ms-python.python",
+				"ms-python.vscode-pylance"
 			]
 		}
 	},
@@ -37,8 +40,8 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install -r requirements.txt"
+	// "postCreateCommand": "pip install --user -r requirements.txt",
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "vscode"
 }

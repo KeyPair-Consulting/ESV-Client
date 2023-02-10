@@ -8,9 +8,10 @@ FROM python:3.8
 WORKDIR /usr/src/app
 
 COPY .devcontainer/requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 --disable-pip-version-check --no-cache-dir -r install requirements.txt
 
-COPY . .
+# Supposedly VS Code will make a shallow clone of the repo instide the container
+# COPY . .
 
 # To DO: the client may be run with various options; 
 #   there may not be a single statement that is suitable here.
