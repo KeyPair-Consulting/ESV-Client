@@ -1,3 +1,0 @@
-requests>=2.27.1
-cryptography>=36.0.1
-pylint>=2.12.2

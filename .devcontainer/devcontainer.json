@@ -1,47 +1,28 @@
-// Based on https://github.com/microsoft/vscode-remote-try-python recommendations, 
-//   modified to use a Dockerfile.
-// See also: 
-// - https://containers.dev/implementors/json_reference/
-// - https://containers.dev/features 
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "ESV Client",
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:0-3.8",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
+			"version": "latest"
+		}
+	}
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code. 
-		"vscode": {
-			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"python.linting.enabled": true,
-    			"python.linting.pylintEnabled": true
-			},
-			"extensions": [
-				"ms-python.python",
-				"ms-python.vscode-pylance"
-			]
-		}
-	},
-	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [9000],
-
-    // NOTE: this extension was present in the original devcontainer.json.
-    // It is a nicety but NIST may prefer their image to avoid port forwarding. 
-
-	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
-	// More info: https://containers.dev/implementors/json_reference/#port-attributes
-	"portsAttributes": {
-		"9000": {
-			"label": "ESV Client",
-			"onAutoForward": "notify"
-		}
-	},
+	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip install --user -r requirements.txt",
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "vscode"
+	// "remoteUser": "root"
 }
